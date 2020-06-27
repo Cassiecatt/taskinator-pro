@@ -210,7 +210,7 @@ $(".card .list-group").sortable({
         // add task data to the temp array as an object
         tempArr.push({
           text: text,
-          date: date,
+          date: date
         });
       });
 
@@ -268,3 +268,9 @@ var auditTask = function(taskEl){
 
 // load tasks for the first time
 loadTasks();
+
+setInterval(function () {
+  $(".card .list-group-item").each(function (el) {
+    auditTask(el);
+  });
+}, (1000*60) * 30);
